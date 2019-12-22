@@ -1,123 +1,135 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:flappy_search_bar/flappy_search_bar.dart';
-import 'package:http/http.dart' as http;
 import 'dart:convert';
-import "dart:async";
-import './view.dart';
+import 'package:http/http.dart' as http;
+
+void main() => runApp(new MaterialApp(
+  home: new Search(),
+  debugShowCheckedModeBanner: false,
+));
 
 class Search extends StatefulWidget {
   @override
-  State createState() {
-    return Searchs();
-  }
+  _HomePageState createState() => new _HomePageState();
 }
 
-class Searchs extends State<Search> {
-  List<Object> _titl = <Object>[];
-  Future<List> search(String search) async {
-    print("run");
-    final res = await http
-        .get('https://qiita.com/api/v2/items?per_page=50&query=$search');
-    final data = json.decode(res.body);
-    print(data);
-    print("---");
-    print(data[0]);
-    print(")---(");
-    print(res.body[0]);
+class _HomePageState extends State<Search> {
+  TextEditingController controller = new TextEditingController();
 
-    if (data.toString() ==
-        "{message: Rate limit exceeded, type: rate_limit_exceeded}") {
-      print("LIMIT");
-      return List.generate(1, (int index) {
-        /*   return Post(
-          "API制限が発生しました。時間を置いてもう一度お試しください。",
-        );*/
-      });
-    }
+  // Get json result and convert it to model. Then add
+  Future<Null> getUserDetails() async {
+    final response = await http.get(url);
+    final responseJson = json.decode(response.body);
 
-    print(data[1]);
-    //await Future.delayed(Duration(seconds: 2));
-    return List.generate(50, (int index) {
-      // if (data[index]["title"]) {
-      var ret = data[index]["title"];
-      _titl.add(ret);
-      //} else {
-      //  return Post(
-      //    "End",
-      //  );
-      // }
+    setState(() {
+      for (Map user in responseJson) {
+        _userDetails.add(UserDetails.fromJson(user));
+      }
     });
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-          // padding: const EdgeInsets.symmetric(horizontal: 20),
-          children: <Widget>[
-            Padding(padding: const EdgeInsets.all(8.0)),
-            Container(
-              //         height: 50.0,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10.0),
-                  color: Colors.white,
-                  boxShadow: <BoxShadow>[
-                    BoxShadow(
-                      color: Colors.grey,
-                      offset: Offset(
-                        0.5,
-                        0.5,
-                      ),
-                      blurRadius: 7.0,
-                    ),
-                  ]),
-              child: TextField(
-                onSubmitted: search,
-                style: TextStyle(fontSize: 25.0),
-                textInputAction: TextInputAction.search,
-                decoration: InputDecoration(
-                    hintText: "入力して検索...",
-                    hintStyle: TextStyle(fontSize: 20.0),
-                    border: InputBorder.none,
-                    //  contentPadding: EdgeInsets.only(left: 15.0,top:10),
-                    suffixIcon: IconButton(
-                      icon: Icon(Icons.search),
-                      //onPressed:,
-
-                      iconSize: 30.0,
-                    )),
-              ),
-            ),
-            Expanded(child: ListView.builder(
-
-                itemBuilder: (BuildContext context, int index) {
-              return ListTile(
-                onTap: () {
-                  print(_titl[index]);
-             /*     this.jsonE = _jso[index];
-                  print(this.jsonE);
-                  print("-------ここまでhome.dartのjsonE-------");
-                  Navigator.push(
-                    context,
-                    new MaterialPageRoute<Null>(
-                      settings: const RouteSettings(name: "/view"),
-                      builder: (BuildContext context) =>
-                          ViewPage(jsonE: this.jsonE),
-                    ),
-                  );*/
-                },
-                title: Text(_titl[index]),
-              );
-            }))
-          ]),
-    );
-  }
- /*   @override
   void initState() {
     super.initState();
-    print("initState");
-    _titl = [];
+
+    getUserDetails();
   }
-*/
+
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text('Home'),
+        elevation: 0.0,
+      ),
+      body: new Column(
+        children: <Widget>[
+          new Container(
+            color: Theme.of(context).primaryColor,
+            child: new Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: new Card(
+                child: new ListTile(
+                  leading: new Icon(Icons.search),
+                  title: new TextField(
+                    controller: controller,
+                    decoration: new InputDecoration(
+                        hintText: 'Search', border: InputBorder.none),
+                    onChanged: onSearchTextChanged,
+                  ),
+                  trailing: new IconButton(icon: new Icon(Icons.cancel), onPressed: () {
+                    controller.clear();
+                    onSearchTextChanged('');
+                  },),
+                ),
+              ),
+            ),
+          ),
+          new Expanded(
+            child: _searchResult.length != 0 || controller.text.isNotEmpty
+                ? new ListView.builder(
+              itemCount: _searchResult.length,
+              itemBuilder: (context, i) {
+                return new Card(
+                  child: new ListTile(
+                    leading: new CircleAvatar(backgroundImage: new NetworkImage(_searchResult[i].profileUrl,),),
+                    title: new Text(_searchResult[i].firstName + ' ' + _searchResult[i].lastName),
+                  ),
+                  margin: const EdgeInsets.all(0.0),
+                );
+              },
+            )
+                : new ListView.builder(
+              itemCount: _userDetails.length,
+              itemBuilder: (context, index) {
+                return new Card(
+                  child: new ListTile(
+                    leading: new CircleAvatar(backgroundImage: new NetworkImage(_userDetails[index].profileUrl,),),
+                    title: new Text(_userDetails[index].firstName + ' ' + _userDetails[index].lastName),
+                  ),
+                  margin: const EdgeInsets.all(0.0),
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  onSearchTextChanged(String text) async {
+    _searchResult.clear();
+    if (text.isEmpty) {
+      setState(() {});
+      return;
+    }
+
+    _userDetails.forEach((userDetail) {
+      if (userDetail.firstName.contains(text) || userDetail.lastName.contains(text))
+        _searchResult.add(userDetail);
+    });
+
+    setState(() {});
+  }
+}
+
+List<UserDetails> _searchResult = [];
+
+List<UserDetails> _userDetails = [];
+
+final String url = 'https://jsonplaceholder.typicode.com/users';
+class UserDetails {
+  final int id;
+  final String firstName, lastName, profileUrl;
+
+  UserDetails({this.id, this.firstName, this.lastName, this.profileUrl = 'https://i.amz.mshcdn.com/3NbrfEiECotKyhcUhgPJHbrL7zM=/950x534/filters:quality(90)/2014%2F06%2F02%2Fc0%2Fzuckheadsho.a33d0.jpg'});
+
+  factory UserDetails.fromJson(Map<String, dynamic> json) {
+    return new UserDetails(
+      id: json['id'],
+      firstName: json['name'],
+      lastName: json['username'],
+    );
+  }
 }
