@@ -1,0 +1,33 @@
+<div *ngIf="data"> 
+<div *ngIf="data.yn === 'N'">
+<h1 mat-dialog-title>ご迷惑をお掛けしてしまい申し訳ございませんでした。</h1>
+<div mat-dialog-content>
+  <p>もしよろしければ改善点やご不満の点等をご記入いただけますと今後の改善に生かさせて頂きます。</p>
+  <mat-form-field>
+    <input placeholder="こちらにご記入ください..." matInput [(ngModel)]="txt">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">閉じる</button>
+  <button mat-button [mat-dialog-close]="txt" cdkFocusInitial>送信</button>
+</div>
+</div>
+<div  *ngIf="data.yn === 'Y'">
+    <h1 mat-dialog-title>評価して頂きありがとうございます！</h1>
+    <div mat-dialog-content>
+  <p>人数に反映しました。開発の励みになります。誠にありがとうございます。</p>
+    </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">閉じる</button>
+  </div>
+  
+</div>
+</div>
+<div *ngIf="!data">
+    <h1 mat-dialog-title>エラーが発生しました。</h1>
+    <div mat-dialog-content>
+  <p>YN value is not defined.</p>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">閉じる</button>
+  </div>

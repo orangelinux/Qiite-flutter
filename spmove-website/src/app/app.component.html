@@ -25,13 +25,22 @@
   .spacer {
     flex: 1;
   }
-
+.minispacer{
+  position: relative;
+  width: 10px;
+}
+.mvf{
+  display: block;
+  @media only screen and (min-width: 600px) {
+    display: none;
+  }
+}
   .toolbar {
-    height: 60px;
-    margin: -8px;
-    display: flex;
+    width: 100%;
+    margin-top: 0px;
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
     align-items: center;
-    background-color: #1976d2;
+    background-color:#2F7FDE;
     color: white;
     font-weight: 600;
   }
@@ -83,22 +92,21 @@
   }
 
 </style>
+<mat-toolbar class="toolbar">
 
-<!-- Toolbar -->
-<mat-toolbar class="toolbar" role="banner">
-  <img
-    width="40"
-    alt="Angular Logo"
-    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
-  />
+<mat-toolbar-row>
+  <img style="position: relative; margin-top: 5px;" width="50px" src="./assets/icon-crop.png">
   <span>Spila</span>
-<div class="spacer"></div>
-<button routerLink="/home">home</button>
-<a routerLink="/news">news</a>
+  <div class="spacer"></div>
+  <button class="mvf" mat-button routerLink="/home">トップ</button>
+<button class="mvf" mat-button routerLink="/news">お知らせ</button>
+<button class="mvf" mat-button routerLink="/qa">よくあるご質問</button>
+<div class="minispacer"></div>
+<button mat-flat-button><mat-icon>get_app</mat-icon>アプリをインストール</button>
+</mat-toolbar-row>
+
 </mat-toolbar>
-
-
-  <router-outlet style=""></router-outlet>
+<router-outlet></router-outlet>
   <script type='text/javascript'>
     (function(I, _, T, i, c, k, s) {if(I.iticks) return;I.iticks = {host:c, settings:s, clientId:k, cdn:_, queue:[]};var h = T.head || T.documentElement;var e = T.createElement(i);var l = I.location;e.async = true;e.src = (_||c)+'/client/inject-v2.min.js';h.insertBefore(e, h.firstChild);I.iticks.call = function(a, b) {I.iticks.queue.push([a, b]);};})(window, 'https://cdn.intelliticks.com/prod/common', document, 'script', 'https://app.intelliticks.com', 'd3mosjKZEScydkk5m_c', {});
     </script>
