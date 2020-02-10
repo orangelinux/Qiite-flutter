@@ -1,3 +1,4 @@
+import { GotologinComponent } from './gotologin/gotologin.component';
 import { QaViewComponent } from './qa-view/qa-view.component';
 import { QaComponent } from './qa/qa.component';
 import { NewsComponent } from './news/news.component';
@@ -22,6 +23,9 @@ const routes: Routes = [
   {
     path: 'qav',
     component: QaViewComponent
+  }, {
+    path: 'GTR',
+    component: GotologinComponent
   }
 ];
 

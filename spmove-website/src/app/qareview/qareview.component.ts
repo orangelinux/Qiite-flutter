@@ -8,6 +8,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 export class QareviewComponent implements OnInit {
   txt: string;
   data: string;
+  yn: string;
   constructor(private dialogRef:MatDialogRef<QareviewComponent>) { }
 
   ngOnInit() {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,ViewChild,ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'spmove-website';
+  mobile: any;
+  viewer: any;
+  ngOnInit() {
+    console.log(window.screen.width);
+    if (window.screen.width < 500) { // 768px portrait
+      this.mobile = true;
+    }
+  }
+
+  hidemenu() {
+    console.log("hidemenu");
+    this.viewer = false;
+  }
 }

@@ -22,7 +22,7 @@ export class QaViewComponent implements OnInit {
   async send(yn) {
     await console.log(yn);
     const dialogRef = await this.dialog.open(QareviewComponent, {
-      data: {yn: yn }
+ //     data: {yn: yn }
     });
 
     dialogRef.afterClosed().subscribe(result => {
