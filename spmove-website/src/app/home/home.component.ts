@@ -5,11 +5,14 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
+config: any;
+fullpage_api: any;
+  constructor() {  this.config = {
+      menu: '#menu',
+      anchors:['page1','page2','page3']
+    };
+}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

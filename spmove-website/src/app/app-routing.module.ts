@@ -1,3 +1,5 @@
+import { HowtoComponent } from './howto/howto.component';
+import { TermsComponent } from './terms/terms.component';
 import { GotologinComponent } from './gotologin/gotologin.component';
 import { QaViewComponent } from './qa-view/qa-view.component';
 import { QaComponent } from './qa/qa.component';
@@ -26,6 +28,12 @@ const routes: Routes = [
   }, {
     path: 'GTR',
     component: GotologinComponent
+  },{
+    path: 'terms',
+    component: TermsComponent
+  },{
+    path: 'howto',
+    component: HowtoComponent
   }
 ];
 

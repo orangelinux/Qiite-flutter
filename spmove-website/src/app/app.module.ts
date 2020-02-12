@@ -12,6 +12,10 @@ import { QaViewComponent } from './qa-view/qa-view.component';
 import { QareviewComponent } from './qareview/qareview.component';
 import { FormsModule } from '@angular/forms';
 import { GotologinComponent } from './gotologin/gotologin.component';
+import { TermsComponent } from './terms/terms.component';
+import { HowtoComponent } from './howto/howto.component';
+import { AngularFullpageModule } from '@fullpage/angular-fullpage';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +24,9 @@ import { GotologinComponent } from './gotologin/gotologin.component';
     QaComponent,
     QaViewComponent,
     QareviewComponent,
-    GotologinComponent
+    GotologinComponent,
+    TermsComponent,
+    HowtoComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +37,7 @@ import { GotologinComponent } from './gotologin/gotologin.component';
     MatSidenavModule,
     MatButtonModule,
     MatInputModule,
+    AngularFullpageModule,
     MatToolbarModule,
     MatDialogModule,
     BrowserAnimationsModule,

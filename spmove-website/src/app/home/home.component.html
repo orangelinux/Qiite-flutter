@@ -1,1 +1,12 @@
-<p>home works!</p>
+<!-- app.component.html -->
+<div fullpage id="fullpage"
+[options]="config"
+(ref)="getRef($event)">
+    <div class="section" style="text-align: center;">
+        <h1>快適なツイッターライフを、全てのひとに。</h1>
+        <h5>SpilaはTwitterのスパムDMの約80%(*)を自動で防ぎ、不快な思いをしたり、アカウントの安全が脅かされる事態を未然に防ぎます。</h5>
+        <img src="../assets/pixel-n.png" style="position: relative; height: 60%;">
+    </div>
+    <div class="section">Section 2</div>
+    <div class="section">Section 3</div>
+</div>
