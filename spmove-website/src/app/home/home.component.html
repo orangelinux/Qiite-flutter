@@ -1,4 +1,29 @@
 <style>
+.cp_iptxt {
+	position: relative;
+    width: 80%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align:center;
+}
+.cp_iptxt input[type='text'] {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0.9em;
+	transition: 0.3s;
+	letter-spacing: 1px;
+	color: #aaaaaa;
+	border: 1px solid #E0E0E0;
+    border-radius: 4px;
+    text-align: start;
+    font-size: 15px;
+}
+.ef input[type='text']:focus {
+	border: 1px solid lightskyblue;
+	outline: none;
+	box-shadow: 0 0 5px 1px blue;
+} 
 .nobr{
     white-space: nowrap;
 }
@@ -147,12 +172,6 @@ svg {
 @keyframes wave {
   to {transform: translateX(-100%);}
 }
-.pc{
-    display:inline;
-@media only screen and (max-device-width: 480px) {
- display: none;
-}
-}
 </style>
 
 <!-- app.component.html -->
@@ -174,21 +193,32 @@ svg {
         <p>※独自に調査した値に基づいて算出された平均的な確率です。実際の確率は時期やアカウントにより変動します。</p>
     </div>
 
-<di class="section" style="position: relative;text-align: center;">
+<div class="section" style="position: relative;text-align: center;">
         <h1>今すぐダウンロード</h1>
         <h3>インストールしてログインするだけで、全自動でSpilaがあなたの代わりにスパムを予防し、ブロックし、通報します。複雑な設定は必要ありません。</h3>
-        <div class="phone">
+        <div *ngIf="dev">
         <img style="width: 80vw;"  src="../assets/getitongp.png">
 </div>
-<div class="pc">
-<input />
+
+<div *ngIf="!dev">
+    <hr style="border-top: 2px dotted #8c8b8b;">
+    <h4>PCの方はアプリのダウンロードリンクを送信します。下記のフォームにメールアドレスを御入力いただくとダウンロードリンクをメールで送信します。ダウンロードリンク送信以外の用途に入力していただいたメールアドレスが使用されることはありません。</h4>
+    <div class="cp_iptxt">
+        <label class="ef">
+        <input type="text" placeholder="メールアドレスを入力...">
+        </label>
+        <button style="margin-top: 15px;" color="primary" mat-stroked-button>メールを送信</button>
+        <br>
+        <a mat-button style="color: #808080;" href="//play.google.com">またはGoogle Playストアからダウンロードする</a>
+    </div>
 </div>
+
         <div class="foot">
             <svg viewBox="0 0 120 28">
-             <defs> 
+            <defs> 
                 <filter id="goo">
-                  <feGaussianBlur in="SourceGraphic" stdDeviation="1" result="blur" />
-                  <feColorMatrix in="blur" mode="matrix" values="
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="1" result="blur" />
+                    <feColorMatrix in="blur" mode="matrix" values="
                        1 0 0 0 0  
                        0 1 0 0 0  
                        0 0 1 0 0  
@@ -230,8 +260,6 @@ svg {
               </g -->
             
             </svg>
-            
-              <div>done with fun - by &copy;<a href="www.chaba.de">Uwe Chardon</a></div>
             </div>
-    </div>
+</div>
     </div>

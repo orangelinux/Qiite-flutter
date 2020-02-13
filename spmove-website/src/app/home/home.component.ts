@@ -9,29 +9,22 @@ export class HomeComponent {
 config: any;
 getRef: any;
   fullpage_api: any;
-  color1: any;
-  color2: any;
-  color3: any;
-  mode1: any;
-  mode2: any;
-  mode3: any;
-  value1: any;
-  value2: any;
-  value3: any;
+  dev: any;
   constructor() {  this.config = {
       menu: '#menu',
-      anchors:['page1','page2','page3']
+      anchors:['top','persent','download']
   };
-    if (window.addEventListener) {
-      var range = document.querySelector("#range"), circle = document.querySelectorAll("circle")[1];
-      if (range && circle) {
-          range.addEventListener("change", function() {
-              var percent = this.value / 100, perimeter = Math.PI * 2 * 170;
-              circle.setAttribute('stroke-dasharray', perimeter * percent + " " + perimeter * (1- percent));
-          });
-      }
-  }
 }
+async ngOnInit(){
+  this.dev = await this.getDevice();
+  await console.log(this.dev);
 
-
+}
+async getDevice(){
+  if ((navigator.userAgent.indexOf('iPhone') > 0 && navigator.userAgent.indexOf('iPad') == -1) || navigator.userAgent.indexOf('iPod') > 0 || navigator.userAgent.indexOf('Android') > 0) {
+    return true;
+  } else {
+    return false;
+  }
+  }
 }
