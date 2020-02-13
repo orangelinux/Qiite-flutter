@@ -1,7 +1,7 @@
 import { RouterLink } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatSidenavModule,MatTabsModule,MatDialogModule,MatInputModule,MatIconModule,MatButtonModule,MatListModule,MatToolbarModule } from '@angular/material';
+import { MatProgressSpinnerModule,MatSidenavModule,MatTabsModule,MatDialogModule,MatInputModule,MatIconModule,MatButtonModule,MatListModule,MatToolbarModule } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -35,6 +35,7 @@ import { AngularFullpageModule } from '@fullpage/angular-fullpage';
     MatIconModule,
     MatTabsModule,
     MatSidenavModule,
+    MatProgressSpinnerModule,
     MatButtonModule,
     MatInputModule,
     AngularFullpageModule,

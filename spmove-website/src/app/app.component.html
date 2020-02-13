@@ -39,7 +39,7 @@
 #nav-close {
   display: none;/*はじめは隠しておく*/
   position: fixed;
-  z-index: 99;
+  z-index: 99997;
   top: 0;/*全体に広がるように*/
   left: 0;
   width: 100%;
@@ -55,7 +55,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 9999;/*最前面に*/
+  z-index: 99998;/*最前面に*/
   width: 90%;/*右側に隙間を作る（閉じるカバーを表示）*/
   max-width: 330px;/*最大幅（調整してください）*/
   height: 100%;
@@ -169,7 +169,7 @@
 
 </style>
 
-<mat-toolbar class="toolbar">
+<mat-toolbar class="toolbar" style="z-index:99999;">
 <mat-toolbar-row>
   <img style="position: relative; margin-top: 5px;" width="50px" src="./assets/icon-crop.png">
   <span>Spila</span>
