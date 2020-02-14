@@ -28,7 +28,7 @@
     white-space: nowrap;
 }
 .bh{
-    font-size: 30px;
+    font-size: 35px;
 }
 .space{
     height: 10px;
@@ -40,7 +40,7 @@
     right: 0;
     margin: 0 auto;
     border-radius: 50px;
-    bottom: 20;
+    bottom: 15vh;
     height: 40px; 
     border: solid 2px #606060;
     width: 20px;
@@ -175,29 +175,33 @@ svg {
 </style>
 
 <!-- app.component.html -->
-<div style="z-index: 88888;" fullpage id="fullpage"
+<div style="z-index: 100; position: absolute;" fullpage id="fullpage"
 [options]="config">
+
     <div class="section bgp" style="text-align: center;">
-        <h1>快適なツイッターライフを、全てのひとに。</h1>
-        <h3>SpilaはTwitterのスパムDMの約80%(*)を自動で防ぎ、不快な思いをしたり、アカウントの安全が脅かされる事態を未然に防ぎます。</h3>
-        <img src="../assets/pixel-n.png" style="height: 50%; position: relative; z-index: -30;">
+        <h1 style="margin: 20px 10px;">快適なツイッターライフを、全てのひとに。</h1>
+        <h3 style="margin: 0px 10px;">SpilaはTwitterのスパムDMの約80%(*)を自動で防ぎ、不快な思いをしたり、アカウントの安全が脅かされる事態を未然に防ぎます。</h3>
+        <img src="../assets/pixel-n.png" style="height: 50%; position: relative; margin-top: 10px;  z-index: -30;">
    <div style="z-index: 40; color: #606060; font-size: 5px;"><div class="pull1"><div class="pull2"></div></div></div>
     </div>
+
     <div class="section" style="text-align: center; width: 100%;">
-        <h1>アカウントを保護する高いパフォーマンス</h1>
-        <div _ngcontent-por-c5="" style="border: solid 3px lightcoral; background: #fff; border-radius: 10px;margin: 0;"><p _ngcontent-por-c5="">悪質なビジネス勧誘を目的としたスパムのブロック率</p><span _ngcontent-por-c5="" style="white-space: nowrap;"><h1 _ngcontent-por-c5="" class="nobr bh">75%</h1></span></div>
-        <div class="space"></div>
-        <div _ngcontent-por-c5="" style="border: solid 3px lightskyblue; background: #fff; border-radius: 10px;margin: 0;"><p _ngcontent-por-c5="">悪質なwebサイトへの誘導を目的としたスパムのブロック率</p><span _ngcontent-por-c5="" style="white-space: nowrap;"><h1 _ngcontent-por-c5="" class="nobr bh">85%</h1></span></div>
-        <div class="space"></div>
-        <div _ngcontent-por-c5="" style="border: solid 3px lightgreen; background: #fff; border-radius: 10px;margin: 0;"><p _ngcontent-por-c5="">アカウントの乗っ取りを目的としたスパムのブロック率</p><span _ngcontent-por-c5="" style="white-space: nowrap;"><h1 _ngcontent-por-c5="" class="nobr bh">92%</h1></span></div>
+        <h1 style="margin: 20px 10px;">アカウントを保護する高いパフォーマンス</h1>
+             <div style="border: solid 3px lightcoral; color: #fff; background: lightcoral; border-radius: 20px;width: 90vw; left: 0; right: 0; margin: 0 auto;"><p _ngcontent-por-c5="">悪質なビジネス勧誘を目的としたスパムのブロック率</p><span _ngcontent-por-c5="" style="white-space: nowrap;"><h1 _ngcontent-por-c5="" class="nobr bh">75%</h1></span></div>
+             <div class="space"></div>
+             <div style="border: solid 3px lightskyblue; color:#fff; background: lightskyblue; border-radius: 20px;width: 90vw; left: 0; right: 0; margin: 0 auto;"><p _ngcontent-por-c5="">悪質なwebサイトへの誘導を目的としたスパムのブロック率</p><span _ngcontent-por-c5="" style="white-space: nowrap;"><h1 _ngcontent-por-c5="" class="nobr bh">85%</h1></span></div>
+             <div class="space"></div>
+            <div style="border: solid 3px lightgreen; color: #fff; background: lightgreen; border-radius: 20px;width: 90vw; left: 0; right: 0; margin: 0 auto;"><p _ngcontent-por-c5="">アカウントの乗っ取りを目的としたスパムのブロック率</p><span _ngcontent-por-c5="" style="white-space: nowrap;"><h1 _ngcontent-por-c5="" class="nobr bh">92%</h1></span></div>
         <p>※独自に調査した値に基づいて算出された平均的な確率です。実際の確率は時期やアカウントにより変動します。</p>
     </div>
+
 
 <div class="section" style="position: relative;text-align: center;">
         <h1>今すぐダウンロード</h1>
         <h3>インストールしてログインするだけで、全自動でSpilaがあなたの代わりにスパムを予防し、ブロックし、通報します。複雑な設定は必要ありません。</h3>
         <div *ngIf="dev">
         <img style="width: 80vw;"  src="../assets/getitongp.png">
+        <p style="margin-top: 15px; color: #808080;">IOS(iphone,Ipad,Ipod,Ipad)版は公開準備中です。大変申し訳ございませんが、しばらくお待ちください。</p>
 </div>
 
 <div *ngIf="!dev">
@@ -210,6 +214,7 @@ svg {
         <button style="margin-top: 15px;" color="primary" mat-stroked-button>メールを送信</button>
         <br>
         <a mat-button style="color: #808080;" href="//play.google.com">またはGoogle Playストアからダウンロードする</a>
+        <p style="margin-top: 15px; color: #808080;">IOS(iphone,Ipad,Ipod,Ipad)版は公開準備中です。大変申し訳ございませんが、しばらくお待ちください。</p>
     </div>
 </div>
 

@@ -12,7 +12,9 @@ getRef: any;
   dev: any;
   constructor() {  this.config = {
       menu: '#menu',
-      anchors:['top','persent','download']
+      anchors:['top','persent','download'],
+      navigation: true,
+  /*    paddingTop:'56px'*/
   };
 }
 async ngOnInit(){
