@@ -1,7 +1,8 @@
 import { RouterLink } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatProgressSpinnerModule,MatSidenavModule,MatTabsModule,MatDialogModule,MatInputModule,MatIconModule,MatButtonModule,MatListModule,MatToolbarModule } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
+import { MatExpansionModule,MatProgressSpinnerModule,MatSidenavModule,MatTabsModule,MatDialogModule,MatInputModule,MatIconModule,MatButtonModule,MatListModule,MatToolbarModule } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,6 +16,7 @@ import { GotologinComponent } from './gotologin/gotologin.component';
 import { TermsComponent } from './terms/terms.component';
 import { HowtoComponent } from './howto/howto.component';
 import { AngularFullpageModule } from '@fullpage/angular-fullpage';
+import { NewsviewComponent } from './newsview/newsview.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { AngularFullpageModule } from '@fullpage/angular-fullpage';
     QareviewComponent,
     GotologinComponent,
     TermsComponent,
-    HowtoComponent
+    HowtoComponent,
+    NewsviewComponent
   ],
   imports: [
     BrowserModule,
@@ -37,9 +40,11 @@ import { AngularFullpageModule } from '@fullpage/angular-fullpage';
     MatSidenavModule,
     MatProgressSpinnerModule,
     MatButtonModule,
+    HttpClientModule,
     MatInputModule,
     AngularFullpageModule,
     MatToolbarModule,
+    MatExpansionModule,
     MatDialogModule,
     BrowserAnimationsModule,
     MatListModule

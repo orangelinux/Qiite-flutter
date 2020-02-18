@@ -1,3 +1,4 @@
+import { NewsviewComponent } from './newsview/newsview.component';
 import { HowtoComponent } from './howto/howto.component';
 import { TermsComponent } from './terms/terms.component';
 import { GotologinComponent } from './gotologin/gotologin.component';
@@ -34,6 +35,9 @@ const routes: Routes = [
   },{
     path: 'howto',
     component: HowtoComponent
+  }, {
+    path: 'nev',
+    component:NewsviewComponent
   }
 ];
 
