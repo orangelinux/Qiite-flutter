@@ -27,7 +27,7 @@ export class NewsComponent implements OnInit {
         { queryParams: { 'title':title,'html':html }});
   }
   async getnotify() {
-    await this.http.get('http://spmoveapi.herokuapp.com/getnotify',{ responseType: 'text' }).subscribe((data) => {
+    await this.http.get('https://spmoveapi.herokuapp.com/getnotify',{ responseType: 'text' }).subscribe((data) => {
       console.log(data);
       var replaced = data.replace(/'/g, '"');
       console.log(replaced);

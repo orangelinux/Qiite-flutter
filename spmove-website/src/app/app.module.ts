@@ -2,7 +2,7 @@ import { RouterLink } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { MatExpansionModule,MatProgressSpinnerModule,MatSidenavModule,MatTabsModule,MatDialogModule,MatInputModule,MatIconModule,MatButtonModule,MatListModule,MatToolbarModule } from '@angular/material';
+import { MatExpansionModule,MatProgressSpinnerModule,MatSidenavModule,MatTabsModule,MatDialogModule,MatInputModule,MatIconModule,MatButtonModule,MatListModule,MatToolbarModule,MatMenuModule } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,6 +17,7 @@ import { TermsComponent } from './terms/terms.component';
 import { HowtoComponent } from './howto/howto.component';
 import { AngularFullpageModule } from '@fullpage/angular-fullpage';
 import { NewsviewComponent } from './newsview/newsview.component';
+//import { CommonModule,DOCUMENT } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -45,8 +46,10 @@ import { NewsviewComponent } from './newsview/newsview.component';
     AngularFullpageModule,
     MatToolbarModule,
     MatExpansionModule,
+    MatMenuModule,
     MatDialogModule,
     BrowserAnimationsModule,
+  //  CommonModule,
     MatListModule
   ],
   providers: [RouterLink],

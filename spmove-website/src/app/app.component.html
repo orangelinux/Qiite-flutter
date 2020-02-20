@@ -193,6 +193,24 @@
           <mat-icon mat-list-icon>question_answer</mat-icon>
           <h4 mat-line>よくあるご質問</h4>
       </mat-list-item>
+      <mat-list-item (click)="golink('https://docs.google.com/forms/d/e/1FAIpQLSfbjbuKS3y-aSp1gyrlRbCtR1mNZG3g6WsdHrqR_ec_lgDaNw/viewform?usp=sf_link')">
+        <mat-icon mat-list-icon>contact_support</mat-icon>
+        <h4 mat-line>お問い合わせ</h4>
+      </mat-list-item>
+      <mat-list-item (click)="golink('https://docs.google.com/forms/d/e/1FAIpQLSc7R9QhkBjj-PVQrYy0QeooirHG1t16OeTpC_UDFEcdM8tLng/viewform?usp=sf_link')">
+        <mat-icon mat-list-icon>speaker_notes</mat-icon>
+        <h4 mat-line>ご意見</h4>
+      </mat-list-item>
+      <mat-list-item (click)="hidemenu()" routerLink="/howto">
+        <mat-icon mat-list-icon>smartphone</mat-icon>
+        <h4 mat-line>使い方</h4>
+    </mat-list-item>
+    <mat-list-item (click)="hidemenu()" routerLink="/terms">
+      <mat-icon mat-list-icon>notes</mat-icon>
+      <h4 mat-line>利用規約</h4>
+  </mat-list-item>
+
+
       <mat-list-item style="background-color:#2F7FDE;" (click)="hidemenu()" routerLink="/qa">
         <mat-icon style="color: #fff;" mat-list-icon>get_app</mat-icon>
         <h4 style="color: #fff;" mat-line>アプリをダウンロード</h4>
@@ -205,6 +223,16 @@
   <button class="mvf" *ngIf="!mobile" mat-button routerLink="/home">トップ</button>
 <button class="mvf" *ngIf="!mobile" mat-button routerLink="/news">お知らせ</button>
 <button class="mvf" *ngIf="!mobile" mat-button routerLink="/qa">よくあるご質問</button>
+<mat-menu #appMenu="matMenu">
+  <button mat-menu-item (click)="golink('https://docs.google.com/forms/d/e/1FAIpQLSfbjbuKS3y-aSp1gyrlRbCtR1mNZG3g6WsdHrqR_ec_lgDaNw/viewform?usp=sf_link')">お問い合わせ</button>
+  <button mat-menu-item (click)="golink('https://docs.google.com/forms/d/e/1FAIpQLSc7R9QhkBjj-PVQrYy0QeooirHG1t16OeTpC_UDFEcdM8tLng/viewform?usp=sf_link')">ご意見</button>
+  <button mat-menu-item routerLink="/howto">使い方</button>
+  <button mat-menu-item routerLink="/terms">利用規約</button>
+</mat-menu>
+
+<button *ngIf="!mobile" mat-icon-button [matMenuTriggerFor]="appMenu">
+  <mat-icon>more_vert</mat-icon>
+</button>
 <div class="minispacer" *ngIf="!mobile"></div>
 <button mat-flat-button *ngIf="!mobile"><mat-icon>get_app</mat-icon>アプリをインストール</button>
 
